@@ -1,10 +1,20 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Main from './views/Main';
+import Details from './components/Details';
 import './App.css';
-import ProductForm from './components/ProductForm';
+
 
 function App() {
   return (
     <div className="App">
-      <ProductForm/>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Main/>} path='/home' default/>
+          <Route element={<Details/>} path='/product/:id'/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
